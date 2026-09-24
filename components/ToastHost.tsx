@@ -1,1 +1,3 @@
-export default function ToastHost(){return null}
+export default function ToastHost() {
+  return null;
+}

@@ -1,3 +1,90 @@
 'use client';
-import Link from 'next/link';import Image from 'next/image';import {usePathname} from 'next/navigation';import {ClipboardList,Bookmark} from 'lucide-react';import {useFitLog} from '@/context/FitLogContext';
-export default function Navbar(){const path=usePathname();const {plan,saved}=useFitLog();return <header className="sticky top-0 z-50 border-b border-[#222] bg-[#070707]/95 backdrop-blur"><div className="container flex min-h-[74px] items-center justify-between gap-5"><Link href="/" className="flex items-center gap-2 font-black tracking-[.16em]"><Image src="/assets/logo.png" alt="FitLog" width={30} height={30}/><span>FITLOG</span></Link><nav className="hidden items-center gap-2 md:flex"><Link className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${path==='/'?'bg-white text-black':'text-[#aaa] hover:text-white'}`} href="/">Workout</Link><Link className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${path.startsWith('/my-plan')?'bg-white text-black':'text-[#aaa] hover:text-white'}`} href="/my-plan">My Plan</Link></nav><div className="flex items-center gap-2"><Link href="/my-plan" className="flex items-center gap-2 rounded-full bg-[#ccff00] px-3 py-2 text-xs font-black uppercase text-black"><ClipboardList size={15}/><span>Plan</span><b>{plan.length}</b></Link><Link href="/my-plan?tab=saved" className="flex items-center gap-2 rounded-full border border-[#555] px-3 py-2 text-xs font-black uppercase"><Bookmark size={15}/><span className="hidden sm:inline">Saved</span><b>{saved.length}</b></Link></div></div><div className="container flex gap-2 pb-3 md:hidden"><Link className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${path==='/'?'bg-white text-black':'bg-[#111] text-[#aaa]'}`} href="/">Workout</Link><Link className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${path.startsWith('/my-plan')?'bg-white text-black':'bg-[#111] text-[#aaa]'}`} href="/my-plan">My Plan</Link></div></header>}
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Bookmark, ClipboardList } from 'lucide-react';
+
+import { useFitLog } from '@/context/FitLogContext';
+
+export default function Navbar() {
+  const path = usePathname();
+  const { plan, saved } = useFitLog();
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-[#222] bg-[#070707]/95 backdrop-blur">
+      <div className="container flex min-h-[74px] items-center justify-between gap-5">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-black tracking-[.16em]"
+        >
+          <Image src="/assets/logo.png" alt="FitLog" width={30} height={30} />
+          <span>FITLOG</span>
+        </Link>
+
+        <nav className="hidden items-center gap-2 md:flex">
+          <Link
+            className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${
+              path === '/'
+                ? 'bg-white text-black'
+                : 'text-[#aaa] hover:text-white'
+            }`}
+            href="/"
+          >
+            Workout
+          </Link>
+          <Link
+            className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${
+              path.startsWith('/my-plan')
+                ? 'bg-white text-black'
+                : 'text-[#aaa] hover:text-white'
+            }`}
+            href="/my-plan"
+          >
+            My Plan
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-2 rounded-full bg-[#ccff00] px-3 py-2 text-xs font-black uppercase text-black"
+          >
+            <ClipboardList size={15} />
+            <span>Plan</span>
+            <b>{plan.length}</b>
+          </Link>
+          <Link
+            href="/my-plan?tab=saved"
+            className="flex items-center gap-2 rounded-full border border-[#555] px-3 py-2 text-xs font-black uppercase"
+          >
+            <Bookmark size={15} />
+            <span className="hidden sm:inline">Saved</span>
+            <b>{saved.length}</b>
+          </Link>
+        </div>
+      </div>
+
+      <div className="container flex gap-2 pb-3 md:hidden">
+        <Link
+          className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${
+            path === '/' ? 'bg-white text-black' : 'bg-[#111] text-[#aaa]'
+          }`}
+          href="/"
+        >
+          Workout
+        </Link>
+        <Link
+          className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${
+            path.startsWith('/my-plan')
+              ? 'bg-white text-black'
+              : 'bg-[#111] text-[#aaa]'
+          }`}
+          href="/my-plan"
+        >
+          My Plan
+        </Link>
+      </div>
+    </header>
+  );
+}
