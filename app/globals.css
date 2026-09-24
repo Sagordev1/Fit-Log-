@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{--bg:#070707;--panel:#111;--line:#292929;--text:#f4f4f0;--muted:#a4a4a4;--lime:#ccff00;}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif} a{text-decoration:none;color:inherit} button,select{font:inherit} button{cursor:pointer}
+.container{width:min(1180px,calc(100% - 40px));margin-inline:auto}.display{font-family:'Arial Narrow',Impact,sans-serif;letter-spacing:-.045em}.border-line{border-color:var(--line)}
+.card-hover{transition:transform .2s ease,border-color .2s ease,background .2s ease}.card-hover:hover{transform:translateY(-4px);border-color:#555;background:#151515}
+.fade-in{animation:fade .45s ease both}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.spinner{width:24px;height:24px;border:2px solid #333;border-top-color:var(--lime);border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.hide-scroll::-webkit-scrollbar{display:none}.hide-scroll{scrollbar-width:none}
