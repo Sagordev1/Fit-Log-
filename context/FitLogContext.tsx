@@ -123,7 +123,6 @@ export function FitLogProvider({
   return (
     <FitLogContext.Provider value={value}>
       {children}
-      <div className="hidden" data-toast={toastMessage} />
       <ToastPortal message={toastMessage} />
     </FitLogContext.Provider>
   );
@@ -133,8 +132,8 @@ function ToastPortal({ message }: { message: string }) {
   if (!message) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-full border border-[#3d3d3d] bg-[#161616] px-5 py-3 text-sm font-bold shadow-2xl">
-      <span className="mr-2 text-[#ccff00]">✓</span>
+    <div className="fixed right-4 top-20 z-[100] flex items-center gap-2 rounded-xl border border-[#3d3d3d] bg-[#161616] px-4 py-3 text-sm font-bold text-white shadow-2xl">
+      <span className="text-[#ccff00]">✓</span>
       {message}
     </div>
   );
