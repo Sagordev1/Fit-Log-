@@ -123,7 +123,7 @@ export default function WorkoutDetailClient({ id }: { id: string }) {
             <button
               onClick={() => addToPlan(workout)}
               disabled={inPlan || plan.length >= 5}
-              className="flex items-center justify-center gap-2 rounded-xl bg-[#ccff00] px-4 py-3 text-xs font-black uppercase text-black disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex items-center justify-center gap-2 rounded-xl bg-[#ccff00] px-4 py-3 text-xs font-black  text-black disabled:cursor-not-allowed disabled:opacity-40"
             >
               {inPlan ? <Check size={16} /> : <Plus size={16} />}
               {inPlan
@@ -136,7 +136,7 @@ export default function WorkoutDetailClient({ id }: { id: string }) {
             <button
               onClick={() => save(workout)}
               disabled={isSaved}
-              className="flex items-center justify-center gap-2 rounded-xl border border-[#4a4a4a] px-4 py-3 text-xs font-black uppercase disabled:cursor-not-allowed disabled:opacity-40"
+              className="flex items-center justify-center gap-2 rounded-xl border border-[#4a4a4a] px-4 py-3 text-xs font-black  disabled:cursor-not-allowed disabled:opacity-40"
             >
               <Bookmark size={16} />
               {isSaved ? 'Saved' : 'Save for later'}
