@@ -57,7 +57,7 @@ export default function WorkoutDetailClient({ id }: { id: string }) {
       </Link>
 
       <div className="grid overflow-hidden rounded-3xl border border-[#292929] bg-[#0d0d0d] lg:grid-cols-[1fr_1fr] lg:items-start">
-        <div className="relative aspect-[4/3] w-full bg-[#151515] sm:aspect-[16/10] lg:sticky lg:top-20 lg:aspect-[4/5]">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#151515] sm:aspect-[16/10] lg:sticky lg:top-20 lg:aspect-[4/5]">
           <Image
             src={workout.image}
             alt={workout.name}
