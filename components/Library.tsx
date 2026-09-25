@@ -1,11 +1,16 @@
-
 'use client';
 
 import Link from 'next/link';
 import { ArrowDownUp, Clock3, Flame, Star } from 'lucide-react';
+import { Oswald } from 'next/font/google';
 import { useMemo, useState } from 'react';
 
 import type { Workout } from '@/lib/data';
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['700'],
+});
 
 type SortOption = 'default' | 'duration' | 'calories' | 'rating';
 
@@ -112,7 +117,7 @@ export default function Library({ workouts }: LibraryProps) {
                     {workout.muscleGroups.map((muscle) => (
                       <span
                         key={muscle}
-                        className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-300"
+                        className="rounded-full bg-[#ccff00] px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-black"
                       >
                         {muscle}
                       </span>
@@ -120,7 +125,9 @@ export default function Library({ workouts }: LibraryProps) {
                   </div>
 
                   {/* Workout Name */}
-                  <h3 className="text-lg font-bold uppercase tracking-tight text-white">
+                  <h3
+                    className={`${oswald.className} text-lg font-bold uppercase tracking-[0.45px] text-white`}
+                  >
                     {workout.name}
                   </h3>
 
@@ -131,19 +138,19 @@ export default function Library({ workouts }: LibraryProps) {
 
                   {/* Stats */}
                   <div className="mt-5 grid grid-cols-3 border-t border-zinc-800 pt-4">
-                    <div className="flex items-center gap-1.5 text-xs text-zinc-400">
+                    <div className="flex items-center gap-1.5 text-xs text-[#ccff00]">
                       <Clock3 size={14} />
-                      <span>{workout.duration} min</span>
+                      <span className="text-zinc-300">{workout.duration} min</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-zinc-400">
+                    <div className="flex items-center gap-1.5 text-xs text-[#ccff00]">
                       <Flame size={14} />
-                      <span>{workout.caloriesBurned} kcal</span>
+                      <span className="text-zinc-300">{workout.caloriesBurned} kcal</span>
                     </div>
 
-                    <div className="flex items-center justify-end gap-1.5 text-xs text-zinc-400">
+                    <div className="flex items-center justify-end gap-1.5 text-xs text-[#ccff00]">
                       <Star size={14} />
-                      <span>{workout.rating}</span>
+                      <span className="text-zinc-300">{workout.rating}</span>
                     </div>
                   </div>
                 </div>
@@ -155,4 +162,3 @@ export default function Library({ workouts }: LibraryProps) {
     </section>
   );
 }
-
