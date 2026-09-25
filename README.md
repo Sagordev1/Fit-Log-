@@ -2,9 +2,6 @@
 
 FitLog is a responsive, dark-mode workout library built from the Programming Hero B14-A6 Fit Log brief. Browse the exercise library, open detailed workout instructions, build a five-lift daily plan, save workouts for later, and track completed lifts.
 
-## 🔗 API
-- All workouts: `https://api.abcz.workers.dev/api/fitlog`
-- Single workout: `https://api.abcz.workers.dev/api/fitlog/:id`
 
 The app fetches the API in the browser and includes the supplied 12-workout dataset as a graceful fallback if the API is temporarily unavailable.
 
@@ -26,24 +23,7 @@ The app fetches the API in the browser and includes the supplied 12-workout data
 7. Custom 404 page and deployment-safe App Router routes.
 8. Mobile-friendly navigation, hero section, footer, and cards.
 
-## 🚀 Run locally
-```bash
-npm install
-npm run dev
-```
-Open `http://localhost:3000`.
-
-## 📦 Production
-```bash
-npm run build
-npm start
-```
-
-Deploy the project root to Vercel. Next.js App Router handles direct route requests for `/workout/:id` and `/my-plan` without client-side routing configuration.
 
 ## 📁 Included design source
 The supplied Figma and Penpot files are kept under `design/`, and the supplied logo/banner assets are under `public/assets/`.
 
-## 📬 Submission
-- Live Link: _add after deployment_
-- GitHub Repository Link: _add after pushing_
