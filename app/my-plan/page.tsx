@@ -209,20 +209,20 @@ function PlanInner() {
         </div>
       ) : (
         /* Empty State */
-        <div className="rounded-3xl border border-dashed border-[#343434] px-6 py-24 text-center">
-          <p className="display text-4xl font-black uppercase">
+        <div className="rounded-3xl border border-[#292929] bg-[#0d0d0d] px-6 py-16 text-center">
+          <p className="text-xl font-black uppercase text-white">
             Nothing here yet
           </p>
 
-          <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#777]">
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#777]">
             Browse the library and add a lift to get today moving.
           </p>
 
           <Link
             href="/#library"
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#ccff00] px-6 py-3 text-xs font-black uppercase text-black"
+            className="mt-6 inline-flex items-center rounded-full bg-[#ccff00] px-6 py-2.5 text-sm font-bold text-black"
           >
-            Go to workouts <ArrowRight size={15} />
+            Go to workouts
           </Link>
         </div>
       )}
@@ -262,37 +262,26 @@ function PlanCard({
 
       {/* Content */}
       <div className="flex min-w-0 flex-1 flex-col p-5">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            {/* Muscle Groups */}
-            <div className="flex flex-wrap gap-2">
-              {w.muscleGroups.map((group) => (
-                <span
-                  key={group}
-                  className="text-[9px] font-black uppercase tracking-wider text-[#ccff00]"
-                >
-                  {group}
-                </span>
-              ))}
-            </div>
-
-            <h2 className="display mt-2 text-3xl font-black uppercase">
-              {w.name}
-            </h2>
-
-            <p className="mt-1 text-sm text-[#777]">
-              {w.equipment}
-            </p>
+        <div>
+          {/* Muscle Groups */}
+          <div className="flex flex-wrap gap-2">
+            {w.muscleGroups.map((group) => (
+              <span
+                key={group}
+                className="text-[9px] font-black uppercase tracking-wider text-[#ccff00]"
+              >
+                {group}
+              </span>
+            ))}
           </div>
 
-          {/* Remove */}
-          <button
-            onClick={remove}
-            aria-label="Remove"
-            className="rounded-full border border-[#333] p-2 text-[#777] hover:border-red-500 hover:text-red-400"
-          >
-            <X size={16} />
-          </button>
+          <h2 className="display mt-2 text-3xl font-black uppercase">
+            {w.name}
+          </h2>
+
+          <p className="mt-1 text-sm text-[#777]">
+            {w.equipment}
+          </p>
         </div>
 
         {/* Stats + Actions */}
@@ -317,11 +306,11 @@ function PlanCard({
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {/* View Details */}
             <Link
               href={`/workout/${w.id}`}
-              className="rounded-lg border border-[#444] px-4 py-2 text-[10px] font-black uppercase hover:border-white"
+              className="rounded-xl bg-[#1a1a1a] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#232323]"
             >
               View Details
             </Link>
@@ -331,13 +320,21 @@ function PlanCard({
               <button
                 onClick={done}
                 disabled={isDone}
-                className="flex items-center gap-2 rounded-lg bg-[#ccff00] px-4 py-2 text-[10px] font-black uppercase text-black disabled:opacity-60"
+                className="flex items-center gap-2 rounded-xl bg-[#ccff00] px-5 py-2.5 text-sm font-bold text-black disabled:opacity-60"
               >
-                <Check size={14} />
-
+                <Check size={16} />
                 {isDone ? 'Done' : 'Mark as Done'}
               </button>
             )}
+
+            {/* Remove */}
+            <button
+              onClick={remove}
+              aria-label="Remove"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#333] text-[#777] hover:border-red-500 hover:text-red-400"
+            >
+              <X size={16} />
+            </button>
           </div>
         </div>
       </div>

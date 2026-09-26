@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Bookmark, ClipboardList } from 'lucide-react';
 
 import { useFitLog } from '@/context/FitLogContext';
 
@@ -22,21 +21,21 @@ export default function Navbar() {
           <span>FITLOG</span>
         </Link>
 
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           <Link
-            className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${
+            className={`text-sm font-bold ${
               path === '/'
-                ? 'bg-white text-black'
+                ? 'text-[#ccff00]'
                 : 'text-[#aaa] hover:text-white'
             }`}
             href="/"
           >
-            Workout
+            Workouts
           </Link>
           <Link
-            className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider ${
+            className={`text-sm font-bold ${
               path.startsWith('/my-plan')
-                ? 'bg-white text-black'
+                ? 'text-[#ccff00]'
                 : 'text-[#aaa] hover:text-white'
             }`}
             href="/my-plan"
@@ -45,22 +44,24 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <Link
             href="/my-plan"
-            className="flex items-center gap-2 rounded-full bg-[#ccff00] px-3 py-2 text-xs font-black uppercase text-black"
+            className="flex items-center gap-2 text-sm font-bold text-white"
           >
-            <ClipboardList size={15} />
-            <span>Plan</span>
-            <b>{plan.length}</b>
+            Plan
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ccff00] text-xs font-black text-black">
+              {plan.length}
+            </span>
           </Link>
           <Link
             href="/my-plan?tab=saved"
-            className="flex items-center gap-2 rounded-full border border-[#555] px-3 py-2 text-xs font-black uppercase"
+            className="flex items-center gap-2 text-sm font-bold text-white"
           >
-            <Bookmark size={15} />
-            <span className="hidden sm:inline">Saved</span>
-            <b>{saved.length}</b>
+            Saved
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#555] text-xs font-black text-white">
+              {saved.length}
+            </span>
           </Link>
         </div>
       </div>
@@ -68,16 +69,16 @@ export default function Navbar() {
       <div className="container flex gap-2 pb-3 md:hidden">
         <Link
           className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${
-            path === '/' ? 'bg-white text-black' : 'bg-[#111] text-[#aaa]'
+            path === '/' ? 'bg-[#ccff00] text-black' : 'bg-[#111] text-[#aaa]'
           }`}
           href="/"
         >
-          Workout
+          Workouts
         </Link>
         <Link
           className={`flex-1 rounded-lg px-4 py-2 text-center text-xs font-bold uppercase ${
             path.startsWith('/my-plan')
-              ? 'bg-white text-black'
+              ? 'bg-[#ccff00] text-black'
               : 'bg-[#111] text-[#aaa]'
           }`}
           href="/my-plan"

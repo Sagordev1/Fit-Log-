@@ -7,6 +7,7 @@ import {
   useMemo,
   useState,
 } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 
 import type { Workout } from '@/lib/data';
 
@@ -133,7 +134,7 @@ function ToastPortal({ message }: { message: string }) {
 
   return (
     <div className="fixed right-4 top-20 z-[100] flex items-center gap-2 rounded-xl border border-[#3d3d3d] bg-[#161616] px-4 py-3 text-sm font-bold text-white shadow-2xl">
-      <span className="text-[#ccff00]">✓</span>
+      <CheckCircle2 size={18} className="shrink-0 text-[#22c55e]" />
       {message}
     </div>
   );
