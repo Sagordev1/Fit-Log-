@@ -2,15 +2,9 @@
 
 import Link from 'next/link';
 import { ArrowDownUp, Clock3, Flame, Star } from 'lucide-react';
-import { Oswald } from 'next/font/google';
 import { useMemo, useState } from 'react';
 
 import type { Workout } from '@/lib/data';
-
-const oswald = Oswald({
-  subsets: ['latin'],
-  weight: ['700'],
-});
 
 type SortOption = 'default' | 'duration' | 'calories' | 'rating';
 
@@ -125,9 +119,7 @@ export default function Library({ workouts }: LibraryProps) {
                   </div>
 
                   {/* Workout Name */}
-                  <h3
-                    className={`${oswald.className} text-lg font-bold uppercase tracking-[0.45px] text-white`}
-                  >
+                  <h3 className="text-lg font-bold uppercase tracking-tight text-white">
                     {workout.name}
                   </h3>
 
@@ -143,7 +135,7 @@ export default function Library({ workouts }: LibraryProps) {
                       <span className="text-zinc-300">{workout.duration} min</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-xs text-[#ccff00]">
+                    <div className="flex items-center justify-center gap-1.5 text-xs text-[#ccff00]">
                       <Flame size={14} />
                       <span className="text-zinc-300">{workout.caloriesBurned} kcal</span>
                     </div>
